@@ -48,17 +48,21 @@ class Maze:
     rest = []
     for i in range(self.height):
       for j in range(self.width):
-        if self.type(i, j) == "square":
+        if (i % 2 == 0 and j % 2 == 0):
           if self.visited[i][j] == False:
-            rest.append([i, j])
-    random.shuffle(rest)
-    for pos in rest:
-      self.dfs(pos, False)
+            dv = [[0, 2], [2, 0], [0, -2], [-2, 0]]
+            random.shuffle(dv)
+            for d in dv:
+              if self.inside(i + d[0], j + d[1]):
+                if self.visited[i + d[0]][j + d[1]] == True:
+                  self.array[i + d[0]//2][j + d[1]//2] = 1
+                  self.visited[i][j] = True
+                  break
   
   def dfs(self, pos, stop):
     self.visited[pos[0]][pos[1]] = 1
 
-    if stop == True and random.randint(1, 3 * max(self.height, self.width)) == 1:
+    if stop == True and random.randint(1, 4 * max(self.height, self.width)) == 1:
       return
 
     ds = [[0, 1], [1, 0], [0, -1], [-1, 0]]
