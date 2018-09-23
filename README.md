@@ -1,7 +1,7 @@
 # race-maze
 Race in the maze game implemented in Python 3 using GTK+ library with graphics made by myself.  <br />
 
-Game is designed for two players. Board is a randomly generated maze. Goal of each player is to reach the starting position of his enemy faster than him (those positions are holes in the outer walls of the maze).
+Game is designed for two players. Board is a randomly generated maze. Goal of each player is to reach the starting position of his enemy faster than him (those positions are holes in the outer wall of the maze).
 
 Game rules and controls:
 <ul>
